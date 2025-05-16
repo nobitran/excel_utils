@@ -2,4 +2,8 @@ files/*
 
 outputs/*
 
+json/*
+
+config.py
+
 __pycache__/
