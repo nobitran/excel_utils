@@ -15,25 +15,35 @@ def compare_data(data1, data2, mapping):
             name = record1.get("name")
             if name in records2:
                 record2 = records2[name]
-            for key, value1 in record1.items():
-                value2 = record2.get(key)
-                try:
-                    value1 = float(value1)
-                    value2 = float(value2)
-                except (ValueError, TypeError):
-                    pass
+                for key, value1 in record1.items():
+                    value2 = record2.get(key)
+                    try:
+                        value1 = float(value1)
+                        value2 = float(value2)
+                    except (ValueError, TypeError):
+                        pass
 
-                if value1 != value2:
-                    if subject not in differences:
-                        differences[subject] = {}
-                    if name not in differences[subject]:
-                        differences[subject][name] = []
-                    differences[subject][name].append({
-                        "field": key,
-                        "value1": value1,
-                        "value2": value2
-                    })  
-                   
+                    if value1 != value2:
+                        if subject not in differences:
+                            differences[subject] = {}
+                        if name not in differences[subject]:
+                            differences[subject][name] = []
+                        differences[subject][name].append({
+                            "field": key,
+                            "value1": value1,
+                            "value2": value2
+                        })  
+            else:
+                if subject not in differences:
+                    differences[subject] = {}
+                if name not in differences[subject]:
+                    differences[subject][name] = []
+                differences[subject][name].append({
+                    "field": "Not Found",
+                    "value1": None,
+                    "value2": None
+                })
+                
     return differences
 
 def print_pretty_differences(differences):
