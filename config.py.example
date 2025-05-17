@@ -1,0 +1,40 @@
+BASE_FOLDER = "files/6"
+BASE_FOLDER_1 = "1"
+BASE_FOLDER_2 = "2"
+
+LIST_KEY_FILE1 = [
+    {"key": "name", "value": "D"},
+    {"key": "ĐĐGtx_1", "value": "E"},
+    {"key": "ĐĐGtx_2", "value": "F"},
+    {"key": "ĐĐGtx_3", "value": "G"},
+    {"key": "ĐĐGtx_4", "value": "H"},
+    {"key": "ĐĐGgk", "value": "I"},
+    {"key": "ĐĐGck", "value": "J"},
+    {"key": "ĐTBmhk1", "value": "K"}
+]
+
+LIST_KEY_FILE2 = [
+    {"key": "name", "value": "C"},
+    {"key": "ĐĐGtx_1", "value": "F"},
+    {"key": "ĐĐGtx_2", "value": "G"},
+    {"key": "ĐĐGtx_3", "value": "H"},
+    {"key": "ĐĐGtx_4", "value": "I"},
+    {"key": "ĐĐGgk", "value": "K"},
+    {"key": "ĐĐGck", "value": "L"},
+    {"key": "ĐTBmhk1", "value": "M"}
+]
+
+MAPPING_FIELD = {
+    "TOAN": "Toán",
+    "NVAN": "Ngữvăn",
+    "TANH": "Ngoạingữ1",
+    "GDCD": "GDCD",
+    "CNGH": "Côngnghệ",
+    "THOC": "Tinhọc",
+    "KHTN": "KhoahọcTựnhiên",
+    "LSDL": "Lịchsửvàđịalý",
+    "GDTC": "Giáodụcthểchất",
+    "NTHU": "Nghệthuật",
+    "HDTNHN": "HĐTN",
+    "GDDP": "GDĐP"
+}
