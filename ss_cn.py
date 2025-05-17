@@ -3,7 +3,22 @@ from utils import get_col_index, compare_data, print_pretty_differences, export_
 import shutil
 import os
 import json
-from config import LIST_KEY_FILE1, LIST_KEY_FILE2, MAPPING_FIELD, BASE_FOLDER, BASE_FOLDER_1, BASE_FOLDER_2
+import importlib
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
+config_file_name = os.getenv("CONFIG_FILE_NAME", "config")
+print(config_file_name)
+config = importlib.import_module(config_file_name)
+
+LIST_KEY_FILE1 = config.LIST_KEY_FILE1
+LIST_KEY_FILE2 = config.LIST_KEY_FILE2
+MAPPING_FIELD = config.MAPPING_FIELD
+BASE_FOLDER = config.BASE_FOLDER
+BASE_FOLDER_1 = config.BASE_FOLDER_1
+BASE_FOLDER_2 = config.BASE_FOLDER_2
 
 def read_excel_cells(file_path, list_keys, min_row=7):
     """
