@@ -18,7 +18,7 @@ def read_excel_cells(file_path, list_keys, min_row=7):
         workbook = openpyxl.load_workbook(file_path, data_only=True)
         sheet_names = workbook.sheetnames
         for sheet in sheet_names:
-            if any(keyword in sheet.upper() for keyword in ["- HK", "WELL", "TATC"]):
+            if any(keyword in sheet.upper() for keyword in ["SMART", "- HK", "WELL", "TATC"]):
                 continue
             sheet_data = workbook[sheet]
             sheet_result = []
@@ -48,9 +48,9 @@ def compare_excel_files(file1_data, file2_data, mapping, file_name):
     # Compare the two data objects
     differences = compare_data(list_sheets1, list_sheets2, mapping)
     
-    print(f"===================> So sánh Lớp {file_name} <===================")
+    print(f"===================> Compare Class {file_name} <===================")
     if not differences:
-        print(f"===================> Lớp {file_name} ĐÚNG <===================")
+        print(f"===================> Class {file_name} CORRECT <===================")
     else:
         print_pretty_differences(differences)
     

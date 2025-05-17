@@ -31,13 +31,13 @@ def compare_data(data1, data2, mapping):
                             })
             else:
                 differences[subject][name].append({
-                    "field": "không tồn tại", "value1": None, "value2": None
+                    "field": "does not exist", "value1": None, "value2": None
                 })
     return {k: dict(v) for k, v in differences.items()}
 
 def print_pretty_differences(differences):
     for subject, students in differences.items():
-        print(f"- {subject} có {len(students)} học sinh có sự khác biệt")
+        print(f"- {subject} has {len(students)} students with differences")
         for student, fields in students.items():
             field_differences = "; ".join(
                 f"{f['field']} ({f['value1']} != {f['value2']})"
@@ -52,10 +52,10 @@ def export_differences_to_txt(differences, output_file):
     try:
         with open(output_file, "w", encoding="utf-8") as file:
             if not differences:
-                file.write("Không khác nhau.\n")
+                file.write("No differences found.\n")
             else:
                 for subject, students in differences.items():
-                    file.write(f"- {subject} có {len(students)} học sinh có sự khác biệt\n")
+                    file.write(f"- {subject} has {len(students)} students with differences\n")
                     for student, fields in students.items():
                         field_differences = "; ".join(
                             f"{f['field']} ({f['value1']} != {f['value2']})"

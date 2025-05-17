@@ -4,7 +4,7 @@ outputs/*
 
 json/*
 
-config.py
+config*.py
 
 __pycache__/
 
