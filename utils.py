@@ -50,7 +50,7 @@ def print_pretty_differences(differences):
 
 def export_differences_to_txt(differences, output_file):
     try:
-        with open(output_file, "w") as file:
+        with open(output_file, "w", encoding="utf-8") as file:
             if not differences:
                 file.write("Không khác nhau.\n")
             else:
