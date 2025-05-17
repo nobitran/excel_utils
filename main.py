@@ -48,8 +48,9 @@ def compare_excel_files(file1_data, file2_data, mapping, file_name):
     # Compare the two data objects
     differences = compare_data(list_sheets1, list_sheets2, mapping)
     
+    print(f"===================> So sánh Lớp {file_name} <===================")
     if not differences:
-        print(f"No differences found in {file_name}.")
+        print(f"===================> Lớp {file_name} ĐÚNG <===================")
     else:
         print_pretty_differences(differences)
     
