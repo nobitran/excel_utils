@@ -39,7 +39,7 @@ def compare_data(data1, data2, mapping):
                 if name not in differences[subject]:
                     differences[subject][name] = []
                 differences[subject][name].append({
-                    "field": "Not Found",
+                    "field": "không tồn tại",
                     "value1": None,
                     "value2": None
                 })
@@ -51,7 +51,12 @@ def print_pretty_differences(differences):
         print(f"- {subject} có {len(students)} học sinh có sự khác biệt")
         for student, fields in students.items():
             field_differences = "; ".join(
-                [f"{field['field']} ({field['value1']} != {field['value2']})" for field in fields]
+                [
+                    f"{field['field']} ({field['value1']} != {field['value2']})"
+                    if not (field['value1'] is None and field['value2'] is None)
+                    else field['field']
+                    for field in fields
+                ]
             )
             print(f" + {student} {field_differences}")    
     
@@ -59,13 +64,18 @@ def export_differences_to_txt(differences, output_file):
     try:
         with open(output_file, "w") as file:
             if not differences:
-                file.write("No differences found.\n")
+                file.write("Không khác nhau.\n")
             else:
                 for subject, students in differences.items():
                     file.write(f"- {subject} có {len(students)} học sinh có sự khác biệt\n")
                     for student, fields in students.items():
                         field_differences = "; ".join(
-                            [f"{field['field']} ({field['value1']} != {field['value2']})" for field in fields]
+                            [
+                                f"{field['field']} ({field['value1']} != {field['value2']})"
+                                if not (field['value1'] is None and field['value2'] is None)
+                                else field['field']
+                                for field in fields
+                            ]
                         )
                         file.write(f" + {student} {field_differences}\n")
                     
